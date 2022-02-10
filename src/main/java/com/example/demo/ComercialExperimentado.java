@@ -1,13 +1,26 @@
 package com.example.demo;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
-@Scope("prototype")
 public class ComercialExperimentado implements Empleados {
+
+	// Ejecucion del codigo despues de la creacion del bean
+	@PostConstruct
+	public void ejecutaDespuesCreacion() {
+		System.out.println("Ejecutado tras creacion del bean");
+	}
+
+	// Ejecucion de codigo despues del apagado del contenedor Spring
+	@PreDestroy
+	public void ejecutaAntesDestruccion() {
+		System.out.println("Ejecutado antes de la destruccion del bean");
+	}
 
 	public ComercialExperimentado() {
 
