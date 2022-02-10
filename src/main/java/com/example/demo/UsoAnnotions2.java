@@ -1,6 +1,6 @@
 package com.example.demo;
 
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class UsoAnnotions2 {
 
@@ -8,7 +8,11 @@ public class UsoAnnotions2 {
 		// TODO Auto-generated method
 
 		// Leer o cargar el XML de configuracion
-		ClassPathXmlApplicationContext contexto = new ClassPathXmlApplicationContext("applicationContext.xml");
+		// ClassPathXmlApplicationContext contexto = new
+		// ClassPathXmlApplicationContext("applicationContext.xml");
+
+		// Leer el class de configuracion
+		AnnotationConfigApplicationContext contexto = new AnnotationConfigApplicationContext(EmpleadosConfig.class);
 
 		// Pedir el contenedor al bean
 		Empleados Antonio = contexto.getBean("comercialExperimentado", Empleados.class);
